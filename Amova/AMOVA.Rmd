@@ -1,0 +1,35 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+# Libs
+library("poppr")
+library("vcfR")
+
+# Import vcf and strata files
+
+vcf<-read.vcfR('cerco.recode.vcf')
+popdata<-read.table("group.list")
+colnames(popdata)<-c("sampleID","population", "continent","host")
+g<-vcfR2genind(vcf)
+g<-as.genclone(g)
+ploidy(g)<-1
+strata(g)<-data.frame(popdata)
+setPop(g)<-~groupID
+pop<-poppr(g)
+
+# AMOVA analysis
+amovacc<-poppr.amova(g3,~sampleID/groupID,clonecorrect=TRUE)
+amova.result <- poppr.amova(data, ~Pop/Subpop)
+amova.result
+
+# Test for significance
+amova.test <- randtest(amova.result)
+plot(amova.test)
+```

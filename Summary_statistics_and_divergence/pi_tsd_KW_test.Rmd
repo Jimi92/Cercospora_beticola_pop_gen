@@ -1,0 +1,59 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+# Libs
+library(ggplot2)
+library("ggpubr")
+library(dplyr)
+
+```
+
+```{r}
+# Make figure Pi and Td
+Pi_full <- read.table("Pixy_output.txt", header = TRUE)
+pdf("nuc_div.pdf")
+ggplot(full_df, aes(x=pop, y=Pi, color = pop)) + 
+  geom_violin(trim=T) + geom_boxplot(width=0.05) + ylab("Pi") + ggtitle("Genetic diversity") + theme_bw() + theme(plot.title = element_text(hjust = 0.5))
+dev.off()
+
+
+Td_full <- read.table("Pixy_output.txt", header = TRUE)
+pdf("TajimaD.pdf")
+ggplot(full_df, aes(x=pop, y=Td, color = pop)) + 
+  geom_violin(trim=T) + geom_boxplot(width=0.05) + ylab("Td") + ggtitle("Genetic diversity") + theme_bw() + theme(plot.title = element_text(hjust = 0.5))
+dev.off()
+
+```
+
+```{r}
+# Statistical tests
+kruskal.test(Pi ~ pop, data = full_df)
+pairwise.wilcox.test(full_df$Pi, full_df$pop,
+                     p.adjust.method = "BH")
+library("ggpubr")
+ggboxplot(full_df, x = "pop", y = "Pi",
+          color = "pop",
+          ylab = "Pi", xlab = "Cluster") #+ yscale("log10", .format = TRUE)
+
+# summary stats
+library(dplyr)
+
+getwd()
+group_by(full_df, pop) %>%
+  summarise(
+    count = n(),
+    mean = mean(Pi, na.rm = TRUE),
+    sd = sd(Pi, na.rm = TRUE),
+    median = median(Pi, na.rm = TRUE),
+    IQR = IQR(Pi, na.rm = TRUE)
+  )
+
+```
+

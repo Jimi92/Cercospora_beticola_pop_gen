@@ -1,0 +1,69 @@
+debuggroup summary 0.11s welcome to circos v0.69-8 15 Jun 2019 on Perl 5.022001
+debuggroup summary 0.11s current working directory /home/taliadoros/software/circos-0.69-9/bin
+debuggroup summary 0.11s command ../bin/circos -conf etc/circos.conf -debug_group summary,timer
+debuggroup summary 0.11s loading configuration from file etc/circos.conf
+
+  *** CIRCOS ERROR ***
+
+      cwd: /home/taliadoros/software/circos-0.69-9/bin
+
+      command: ../bin/circos -conf etc/circos.conf -debug_group summary,timer
+
+  CONFIGURATION FILE ERROR
+
+  Circos could not find the configuration file [etc/circos.conf]. To run Circos,
+  you need to specify this file using the -conf flag. The configuration file
+  contains all the parameters that define the image, including input files,
+  image size, formatting, etc.
+
+  If you do not use the -conf flag, Circos will attempt to look for a file
+  circos.conf in several reasonable places such as . etc/ ../etc
+
+  To see where Circos looks for the file, use
+
+      circos -debug_flag io
+
+  To see how configuration files work, create the example image, whose
+  configuration and data are found in example/. From the Circos distribution
+  directory,
+
+      cd example
+
+      ../bin/circos -conf ./circos.conf
+
+  or use the 'run' script (UNIX only).
+
+  Configuration files are described here
+
+      http://circos.ca/tutorials/lessons/configuration/configuration_files/
+
+  and the use of command-line flags, such as -conf, is described here
+
+      http://circos.ca/tutorials/lessons/configuration/runtime_parameters/
+
+  Windows users unfamiliar with Perl should read
+
+      http://circos.ca/tutorials/lessons/configuration/unix_vs_windows/
+
+  This error can also be produced if supporting configuration files, such as
+  track defaults, cannot be read.
+
+  If you are having trouble debugging this error, first read the best practices
+  tutorial for helpful tips that address many common problems
+
+      http://www.circos.ca/documentation/tutorials/reference/best_practices
+
+  The debugging facility is helpful to figure out what's happening under the
+  hood
+
+      http://www.circos.ca/documentation/tutorials/configuration/debugging
+
+  If you're still stumped, get support in the Circos Google Group.
+
+      http://groups.google.com/group/circos-data-visualization
+
+  Please include this error, all your configuration, data files and the version
+  of Circos you're running (circos -v). Do not email me directly -- please use
+  the group.
+
+  Stack trace:
