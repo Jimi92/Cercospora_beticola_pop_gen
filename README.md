@@ -7,7 +7,7 @@
 Location on GitHub: folder SNP_calling
 
 The script full_pipe_SNP_calling.sh was used to 1) trim raw sequence files, 2) map the sequences on the reference genome, and 3) call and hardfilter high-quality SNPs and indels.
-The script fetch_independ_neutral.sh was used to create the independent and neutral datasets as discribed here: https://www.biorxiv.org/content/10.1101/2023.07.28.550921v1.full
+The script fetch_independ_neutral.sh was used to create the independent and neutral datasets as discribed here:
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------
