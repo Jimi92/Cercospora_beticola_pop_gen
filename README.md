@@ -1,4 +1,4 @@
-# Cercospora_beticola_pop_gen
+# Population and evolutionary genomics of Cercospora beticola
 
 # Data preparation
 
