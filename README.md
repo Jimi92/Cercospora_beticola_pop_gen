@@ -33,7 +33,7 @@ Location on GitHub: folder 'Summary_statistics_and_divergence'
 
 Use the script Pi_Td_Fst_Dxy.sh to obtain Fst and Dxy estimates.
 
-## PoMo
+## Polymorphism-aware tree
 Location on GitHub: folder PoMo
 
 the script FastaVCFToCounts.py was used to convert the VCF file to a cf file. Then the run_PoMo.sh was used to run the analysis
